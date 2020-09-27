@@ -1,5 +1,5 @@
 # NotesApp
-This note application is build with Googles's latest recommeded jetpack libraries and MVVM architecture.
+This note application is build with Google's latest recommeded jetpack libraries and MVVM architecture.
 
 This is my personal project to demostrate the desing of MVVM architecture and using with various recommended google's jetpack library.
 Whole application is written in kotlin.

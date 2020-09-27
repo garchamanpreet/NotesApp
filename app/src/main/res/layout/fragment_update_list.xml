@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.UpdateListFragment"
+    android:id="@+id/id_update_list_fragment"
+    android:padding="24dp">
+
+
+    <EditText
+        android:id="@+id/update_fragment_note_title"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_states_background"
+        android:gravity="top|start"
+        android:hint="@string/note_title_editView"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/update_fragment_priority_spinner"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/textWhite"
+        android:entries="@array/priorities"
+        android:hint="@string/note_priority"
+        android:paddingStart="20dp"
+        android:paddingEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/update_fragment_note_title" />
+
+    <EditText
+        android:id="@+id/update_fragment_note_description"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_states_background"
+        android:hint="@string/add_note_description"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:padding="24dp"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/update_fragment_priority_spinner" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

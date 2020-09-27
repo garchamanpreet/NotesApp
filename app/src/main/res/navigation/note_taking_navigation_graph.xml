@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/note_talking_navigation_graph"
+    app:startDestination="@id/noteListFragment">
+
+    <fragment
+        android:id="@+id/updateListFragment"
+        android:name="com.manpreet.androidmvvm.ui.UpdateListFragment"
+        android:label="Update Notes"
+        tools:layout="@layout/fragment_update_list" >
+        <action
+            android:id="@+id/action_updateListFragment_to_noteListFragment"
+            app:destination="@id/noteListFragment" />
+        <argument
+            android:name="update_list_data_from_note_list_fragment"
+            app:argType="com.manpreet.note.repository.roomdatabase.entity.NoteTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/addToListFragment"
+        android:name="com.manpreet.androidmvvm.ui.AddToListFragment"
+        android:label="Add Notes"
+        tools:layout="@layout/fragment_add_to_list" >
+        <action
+            android:id="@+id/action_addToListFragment_to_noteListFragment"
+            app:destination="@id/noteListFragment"
+            app:enterAnim="@anim/from_centre_to_left_to_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteListFragment"
+        android:name="com.manpreet.androidmvvm.ui.NoteListFragment"
+        android:label="Notes"
+        tools:layout="@layout/fragment_note_list" >
+        <action
+            android:id="@+id/action_noteListFragment_to_updateListFragment"
+            app:destination="@id/updateListFragment" />
+        <action
+            android:id="@+id/action_noteListFragment_to_addToListFragment"
+            app:destination="@id/addToListFragment"
+            app:enterAnim="@anim/from_right_to_centre"
+            app:exitAnim="@anim/from_centre_to_left_to_exit" />
+    </fragment>
+</navigation>

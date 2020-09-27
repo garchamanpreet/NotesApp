@@ -7,8 +7,8 @@ Note: Data base is designed as separate android lib module to achieve the busine
       Database is standalone library module here.
       
 The libraries and components used in this project are 
-1. Navigational Componenet: Dictates the navigation of user actions while using the application.
-    a. Helps to reduce the extra overload of boiler plate code for navigation in app.
+1. Navigational Component: Dictates the navigation of user actions while using the application.
+    a. Helps to reduce the extra overload of boiler plate code for navigation in app and maintain the navigation stack .
     b. Improves data transations in between fragment with type-safety.
     c. Reduces the manual handling for fragment transaction.
     

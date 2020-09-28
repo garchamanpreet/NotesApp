@@ -3,40 +3,69 @@ package com.manpreet.androidmvvm.ui
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.manpreet.androidmvvm.R
+import com.manpreet.androidmvvm.presenter.NoteListViewModel
+import com.manpreet.androidmvvm.presenter.SharedViewModel
+import com.manpreet.note.repository.roomdatabase.entity.NoteTable
 import com.manpreet.note.repository.roomdatabase.entity.Priority
+import kotlinx.android.synthetic.main.fragment_update_list.*
 import kotlinx.android.synthetic.main.fragment_update_list.view.*
+import org.w3c.dom.Text
 
 class UpdateListFragment : Fragment() {
-    val arguments: UpdateListFragmentArgs by navArgs()
-    
+    private val arguments: UpdateListFragmentArgs by navArgs()
+    private val sharedViewModel : SharedViewModel by viewModels()
+    private val noteListViewModel: NoteListViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view= inflater.inflate(R.layout.fragment_update_list, container, false)
         //retrieve the data send from add fragment
-        view.update_fragment_note_title.setText(arguments.updateListDataFromNoteListFragment.title)
-        view.update_fragment_note_description.setText(arguments.updateListDataFromNoteListFragment.description)
-        
-        view.update_fragment_priority_spinner.setSelection(selectThePosition(arguments.updateListDataFromNoteListFragment.priority))
+        retrievePassedData(view)
         setHasOptionsMenu(true)
         return view
-        
     }
-    
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.save_notes_for_add_fragment,menu)
+        inflater.inflate(R.menu.update_fragment,menu)
     }
-    
-    private fun selectThePosition(priority: Priority):Int{
-        return when(priority){
-            Priority.HIGH_PRIORITY -> 0
-            Priority.MEDIUM_PRIORITY -> 1
-            Priority.LOW_PRIORITY-> 2
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            R.id.id_save_note -> {
+                updateTheNote()
+            }
+            R.id.id_delete_note->{
+                deleteNote()
+            }
         }
+        return super.onOptionsItemSelected(item)
     }
-    
-    
+
+    private fun deleteNote() {
+        noteListViewModel.deleteThisNote(arguments.updateListDataFromNoteListFragment.id)
+        findNavController().navigate(R.id.action_updateListFragment_to_noteListFragment)
+
+    }
+
+    private fun updateTheNote() {
+        //id plays important role , it must be same as passed content , otherwise database wont be updated
+        val noteTable = NoteTable(arguments.updateListDataFromNoteListFragment.id,
+            update_fragment_note_title.text.toString(),
+            sharedViewModel.parsePriorityToEnum(update_fragment_priority_spinner.selectedItem.toString()),
+            update_fragment_note_description.text.toString()
+        )
+        noteListViewModel.updateNote(noteTable)
+        findNavController().navigate(R.id.action_updateListFragment_to_noteListFragment)
+    }
+    private fun retrievePassedData(view: View){
+        view.update_fragment_note_title.setText(arguments.updateListDataFromNoteListFragment.title)
+        view.update_fragment_note_description.setText(arguments.updateListDataFromNoteListFragment.description)
+        view.update_fragment_priority_spinner.setSelection(
+            sharedViewModel.selectThePosition(arguments.updateListDataFromNoteListFragment.priority))
+    }
 }

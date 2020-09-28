@@ -48,5 +48,16 @@ class NoteListViewModel(application: Application) : AndroidViewModel(application
     fun getListOfNotes(): LiveData<List<NoteTable>>{
         return listOfNotes
     }
-    
+
+    fun updateNote(noteTable: NoteTable){
+        viewModelScope.launch(Dispatchers.IO) {
+            dataBaseRepo.updateNote(noteTable)
+        }
+
+    }
+    fun deleteThisNote(idPrimary: Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            dataBaseRepo.deleteThisNote(idPrimary)
+        }
+    }
 }

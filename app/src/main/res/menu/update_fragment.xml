@@ -7,8 +7,12 @@
         android:id="@+id/id_save_note"
         android:title="@string/save_note"
         android:icon= "@drawable/ic_save"
-        android:iconTint="@color/menu_icon"
-       app:showAsAction="ifRoom">
+        app:showAsAction="ifRoom">
     </item>
 
+    <item
+        android:id="@+id/id_delete_note"
+        android:title="@string/delete">
+
+    </item>
 </menu>

@@ -20,15 +20,21 @@ class NoteRepositoryInterface (private val context: Context){
     suspend fun addNote(notesContent: NoteTable){
         Log.d(TAG, "addNote: ")
         noteDao.insertData(notesContent)
-        
     }
     fun getAllNotes(): LiveData<List<NoteTable>> {
         Log.d(TAG, "getAllNotes: ")
      return noteDao.getAllData()
     }
-    
    suspend fun deleteAllNotes(){
         Log.d(TAG, "deleteAllNote: ")
         noteDao.deleteAllNotes()
+    }
+    suspend fun updateNote(note: NoteTable){
+        val result= noteDao.updateNotes(note)
+        Log.d(TAG, "updateNote: updated rows ${result}")
+    }
+
+    suspend fun deleteThisNote(id: Int){
+        noteDao.deleteThisNote(id)
     }
 }

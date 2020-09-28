@@ -33,9 +33,7 @@ class AddToListFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_add_to_list, container, false)
         setHasOptionsMenu(true)
         view.priority_spinner.onItemSelectedListener = sharedViewModel.itemSelectedListener
-        
         return view
-        
     }
     
     //inflating the menu option

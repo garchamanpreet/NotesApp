@@ -60,6 +60,13 @@ class SharedViewModel(application: Application):AndroidViewModel(application) {
         return !(title.isEmpty() || description.isEmpty())
         
     }
-    
-    
+
+    fun selectThePosition(priority: Priority):Int{
+        return when(priority){
+            Priority.HIGH_PRIORITY -> 0
+            Priority.MEDIUM_PRIORITY -> 1
+            Priority.LOW_PRIORITY-> 2
+        }
+    }
+
 }

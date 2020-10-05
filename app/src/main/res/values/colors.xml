@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Primary colour and its light variant should be used for app's interface -->
-    <!--dark theme Primary colours-->
-    <color name="colorPrimaryDark">#102027</color>
-    <color name="colorAccentDark">#a30000</color>
-    <color name="textBlack">#000000</color>
-    <!--light theme Primary colours-->
-
-    <color name="colorPrimaryLight">#62727b</color>
-    <color name="colorAccentLight">#d50000</color>
-    <color name="textWhite">#FFFFFF</color>
-
-
-    <!-- secondary colours are used for buttons , view's boundaries etc etc-->
-    <color name="transparent">#00E3F2FD</color>
-    <color name="buttonBackground">#FFFFFF</color>
-    <color name="lineStrokeFocused">#AA00FF</color>
-    <color name="lineStrokeNotFocused">#FFFFFF</color>
-    <color name="viewBackground">#A9ACAB</color>
-    <!--light theme secondary colours-->
+    <!--light and default theme Primary colours-->
+    <color name="primaryColor">#da6531</color>
+    <color name="secondaryColor">#3a9679</color>
+    <color name="accentColor">#f9a825</color>
+    <color name="colorForViewOutline">#fad284</color>
+    <color name="pitchBlack">#000000</color>
+    <color name="pitchWhite">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
 
     <!-- Spinner colours  -->
-    <color name="priority_high">#D50000</color>
-    <color name="priority_medium">#304FFE</color>
-    <color name="priority_low">#00C853</color>
-    <color name="menu_icon">#ffb300</color>
-    #ffb300
+    <color name="priority_high">#ca3e47</color>
+    <color name="priority_medium">#fff78f</color>
+    <color name="priority_low">#1ee3cf</color>
+
+
+
+
+
+
 </resources>

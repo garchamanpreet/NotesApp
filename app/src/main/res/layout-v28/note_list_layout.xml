@@ -6,23 +6,19 @@
     android:id="@+id/note_list_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:layout_margin="16dp"
+    android:layout_margin="8dp"
     android:elevation="16dp"
-    >
+    android:outlineAmbientShadowColor="@color/material_on_surface_emphasis_medium"
+    android:background="@drawable/note_view_background">
     <!-- Single view layout representation for recyclerView -->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:background="@drawable/note_view_background"
-            android:elevation="24dp"
-            android:layout_marginTop="8dp"
+            android:elevation="16dp"
             android:id="@+id/note_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
-         <!--   -->
 
             <TextView
                 android:id="@+id/note_container_title"

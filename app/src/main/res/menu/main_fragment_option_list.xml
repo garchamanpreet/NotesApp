@@ -8,14 +8,10 @@
         android:title="@string/search_note"
         android:id="@+id/id_search_note"
         android:icon="@drawable/ic_search"
-        android:iconTint="@color/colorPrimaryDark"
         app:showAsAction="ifRoom"
         app:actionViewClass="androidx.appcompat.widget.SearchView">
     </item>
-
-    <group
-        android:checkableBehavior ="single">
-        <!--Sorting -->
+    <group>
         <item
             android:id="@+id/sortingOptions"
             android:title="@string/sort_by">
@@ -33,13 +29,11 @@
             </menu>
         </item>
 
-
     </group>
 
     <item
         android:id="@+id/id_delete_all"
         android:title="@string/delete_all">
     </item>
-
 
 </menu>

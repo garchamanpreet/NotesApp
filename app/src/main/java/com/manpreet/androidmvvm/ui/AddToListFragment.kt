@@ -14,16 +14,11 @@ import com.manpreet.note.repository.roomdatabase.entity.NoteTable
 import kotlinx.android.synthetic.main.fragment_add_to_list.*
 import kotlinx.android.synthetic.main.fragment_add_to_list.view.*
 
-
 class AddToListFragment : Fragment() {
     private val TAG ="AddToListFragment"
     //Kotlin way of initialization
     private val addNoteViewViewModel : NoteListViewModel by viewModels()
     private val sharedViewModel : SharedViewModel by viewModels()
-    
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,14 +30,12 @@ class AddToListFragment : Fragment() {
         view.priority_spinner.onItemSelectedListener = sharedViewModel.itemSelectedListener
         return view
     }
-    
-    //inflating the menu option
+    //Inflating the menu option
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         Log.d(TAG, "onCreateOptionsMenu: ")
         inflater.inflate(R.menu.save_notes_for_add_fragment,menu)
     }
-    
-    // to handle click event on choosing save option
+    // To handle click event on choosing save option
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         Log.d(TAG, "onOptionsItemSelected: ")
         if (item.itemId == R.id.id_save_note) {
@@ -50,7 +43,6 @@ class AddToListFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
-    
     private fun addNoteToDb() {
         Log.d(TAG, "addNoteToDb: ")
         //getData and getReferences directly via kotlin extension lib, no use of findViewById()
@@ -61,7 +53,6 @@ class AddToListFragment : Fragment() {
         val validate = sharedViewModel.validateData(noteTitle,noteDescription)
         val priority = priority_spinner.selectedItem.toString()
         val parsePriority = sharedViewModel.parsePriorityToEnum(priority)
-        
         when (validate){
             true -> {
                 val note = NoteTable(0, noteTitle, parsePriority, noteDescription)
@@ -73,5 +64,4 @@ class AddToListFragment : Fragment() {
             else -> Toast.makeText(this.context,"Add title or description",Toast.LENGTH_SHORT).show()
         }
     }
-   
 }

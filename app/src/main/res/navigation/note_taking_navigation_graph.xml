@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/noteListFragment"
         android:name="com.manpreet.androidmvvm.ui.NoteListFragment"
-        android:label="Notes"
+        android:label="Take Notes"
         tools:layout="@layout/fragment_note_list" >
         <action
             android:id="@+id/action_noteListFragment_to_updateListFragment"
@@ -40,5 +40,20 @@
             app:destination="@id/addToListFragment"
             app:enterAnim="@anim/from_right_to_centre"
             app:exitAnim="@anim/from_centre_to_left_to_exit" />
+        <action
+            android:id="@+id/action_noteListFragment_to_singleNoteFragment"
+            app:destination="@id/singleNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singleNoteFragment"
+        android:name="com.manpreet.androidmvvm.ui.SingleNoteFragment"
+        android:label="Details"
+        tools:layout="@layout/detail_note_view" >
+        <argument
+            android:name="noteList_to_noteDetail_fragment"
+            app:argType="com.manpreet.note.repository.roomdatabase.entity.NoteTable" />
+        <action
+            android:id="@+id/action_singleNoteFragment_to_noteListFragment"
+            app:destination="@id/noteListFragment" />
     </fragment>
 </navigation>

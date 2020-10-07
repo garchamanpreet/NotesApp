@@ -1,61 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.NoteListFragment">
+<layout >
+    <data>
+        <variable
+            name="noteViewModel"
+            type="com.manpreet.androidmvvm.presenter.NoteListViewModel" />
+    </data>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/note_list_recycler_view"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_new_notes_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="48dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/add_notes_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/no_notes_available"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:visibility="visible"
-        android:text="@string/no_notes_available"
-        app:layout_constraintEnd_toEndOf="@+id/empty_inbox"
-        app:layout_constraintStart_toStartOf="@+id/empty_inbox"
-        app:layout_constraintTop_toBottomOf="@+id/empty_inbox" />
-
-    <ImageView
-        android:visibility="visible"
-        android:id="@+id/empty_inbox"
-        android:layout_width="142dp"
-        android:layout_height="131dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="24dp"
-        android:src="@drawable/ic_baseline_inbox_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/note_list_recycler_view" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.NoteListFragment">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/note_list_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+        </androidx.recyclerview.widget.RecyclerView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:navigateToAddNotesFragment="@{true}"
+            android:id="@+id/add_new_notes_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="48dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/add_notes_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:id="@+id/no_notes_available"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:isDataBaseEmpty="@{noteViewModel.isDataBaseEmpty}"
+            android:textSize="24sp"
+            android:textColor="?attr/colorSecondary"
+            android:text="@string/no_notes_available"
+            app:layout_constraintEnd_toEndOf="@+id/empty_inbox"
+            app:layout_constraintStart_toStartOf="@+id/empty_inbox"
+            app:layout_constraintTop_toBottomOf="@+id/empty_inbox" />
+        <ImageView
+            android:isDataBaseEmpty="@{noteViewModel.isDataBaseEmpty}"
+            android:id="@+id/empty_inbox"
+            android:layout_width="142dp"
+            android:layout_height="131dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="128dp"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/empty_database"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/note_list_recycler_view" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

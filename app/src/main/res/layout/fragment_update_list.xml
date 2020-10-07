@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.UpdateListFragment"
-    android:id="@+id/id_update_list_fragment"
-    android:padding="24dp">
+<layout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.UpdateListFragment"
+        android:id="@+id/id_update_list_fragment"
+        android:padding="24dp">
 
+<<<<<<< HEAD
     <EditText
         android:id="@+id/update_fragment_note_title"
         android:layout_width="0dp"
@@ -53,6 +55,51 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/update_fragment_priority_spinner" />
+=======
+        <EditText
+            android:id="@+id/update_fragment_note_title"
+            android:layout_width="@dimen/title_layout_width"
+            android:layout_height="@dimen/title_layout_height"
+            android:layout_margin="@dimen/title_layout_margin"
+            android:textSize="@dimen/title_textSize"
+            android:padding="@dimen/title_padding"
+            android:hint="@string/note_title_editView"
+            android:inputType="text"
+            android:background="@drawable/view_state"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:background="@drawable/view_state"
+            android:id="@+id/update_fragment_priority_spinner"
+            android:layout_width="@dimen/spinner_layout_width"
+            android:layout_height="@dimen/spinner_layout_height"
+            android:layout_margin="@dimen/spinner_layout_margin"
+            android:padding="@dimen/spinner_padding"
+            android:entries="@array/priorities"
+            android:hint="@string/note_priority"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/update_fragment_note_title" />
+
+        <EditText
+            android:elevation="2dp"
+            android:id="@+id/update_fragment_note_description"
+            android:layout_width="@dimen/description_layout_width"
+            android:layout_height="@dimen/description_layout_height"
+            android:layout_margin="@dimen/description_layout_margin"
+            android:padding="@dimen/description_padding"
+            android:background="@drawable/view_state"
+            android:hint="@string/add_note_description"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/update_fragment_priority_spinner" />
+>>>>>>> featureUpdates
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

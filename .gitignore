@@ -12,3 +12,7 @@
 /captures
 .externalNativeBuild
 .cxx
+/app/build
+/repository/build
+.gitignore
+importantLinks

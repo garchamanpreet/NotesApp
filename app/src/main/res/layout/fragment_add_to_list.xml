@@ -1,68 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout>
 
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="24dp"
-    tools:context=".ui.AddToListFragment"
-    android:id="@+id/id_add_to_list_fragment">
-
-    <EditText
-        android:id="@+id/note_title_editView"
-        android:textSize="24sp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_marginTop="8dp"
-
-        android:background="@drawable/button_states_background"
-
-        android:hint="@string/note_title_editView"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/priority_spinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </EditText>
-
-    <Spinner
-        android:id="@+id/priority_spinner"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/textWhite"
-        android:entries="@array/priorities"
-        android:hint="@string/note_priority"
-        android:paddingStart="20dp"
-        android:paddingEnd="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/note_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/note_title_editView">
-
-    </Spinner>
-
-    <EditText
-        android:id="@+id/note_description"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/button_states_background"
-        android:gravity="top|start"
-        android:hint="@string/add_note_description"
-        android:inputType="textMultiLine"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:padding="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/priority_spinner">
+        tools:context=".ui.AddToListFragment"
+        android:id="@+id/id_add_to_list_fragment">
+        <EditText
+            android:id="@+id/note_title_editView"
+            android:textSize="@dimen/title_textSize"
+            android:layout_width="@dimen/title_layout_width"
+            android:layout_height="@dimen/title_layout_height"
+            android:layout_margin="@dimen/title_layout_margin"
+            android:padding="@dimen/title_padding"
+            android:hint="@string/note_title_editView"
+            android:inputType="text"
+            android:background="@drawable/view_state"
+            app:layout_constraintBottom_toTopOf="@+id/priority_spinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </EditText>
+        </EditText>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Spinner
+            android:background="@drawable/view_state"
+            android:id="@+id/priority_spinner"
+            android:layout_width="@dimen/spinner_layout_width"
+            android:layout_height="@dimen/spinner_layout_height"
+            android:layout_margin="@dimen/spinner_layout_margin"
+            android:padding="@dimen/spinner_padding"
+            android:entries="@array/priorities"
+            android:hint="@string/note_priority"
+            app:layout_constraintBottom_toTopOf="@+id/note_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/note_title_editView">
+
+        </Spinner>
+
+        <EditText
+            android:elevation="2dp"
+            android:id="@+id/note_description"
+            style="@style/Description"
+            android:background="@drawable/view_state"
+            android:gravity="top|start"
+            android:hint="@string/add_note_description"
+            android:inputType="textMultiLine"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/priority_spinner">
+
+        </EditText>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -40,5 +40,3 @@ ext {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
-// check this lnk to manage multiple module proejct gradle files configuration  https://developer.android.com/studio/build

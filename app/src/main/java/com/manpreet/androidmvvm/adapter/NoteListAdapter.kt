@@ -28,29 +28,6 @@ internal class NoteListAdapter: RecyclerView.Adapter<NoteListAdapter.NoteViewHol
     }
     // Data binding with view
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-       /* holder.itemView.apply{
-            //send the data to update fragment
-            note_container.setOnClickListener {
-                findNavController().navigate(NoteListFragmentDirections
-                    .actionNoteListFragmentToUpdateListFragment(noteList[position]))
-            }
-            note_container_title.text = noteList[position].title
-            note_container_description.text = noteList[position].description
-            when (noteList[position].priority){
-                Priority.HIGH_PRIORITY->
-                    note_priority_indicator.setCardBackgroundColor(
-                        ContextCompat.getColor(
-                            holder.itemView.context,R.color.priority_high))
-                Priority.MEDIUM_PRIORITY->
-                    note_priority_indicator.setCardBackgroundColor(
-                        ContextCompat.getColor(
-                            holder.itemView.context,R.color.priority_medium))
-                Priority.LOW_PRIORITY->
-                    note_priority_indicator.setCardBackgroundColor(
-                        ContextCompat.getColor(
-                            holder.itemView.context,R.color.priority_low))
-            }
-        }*/
 
         //send data to detail note fragment
         holder.itemView.apply{

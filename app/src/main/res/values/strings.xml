@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndoridMVVM</string>
+    <string name="app_name">Take Notes</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="no_notes_available">No notes to display</string>
     <string name="note_title_editView">Title</string>

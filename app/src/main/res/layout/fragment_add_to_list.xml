@@ -10,23 +10,28 @@
         android:padding="24dp"
         tools:context=".ui.AddToListFragment"
         android:id="@+id/id_add_to_list_fragment">
-        <EditText
-            android:id="@+id/note_title_editView"
-            android:textSize="@dimen/title_textSize"
-            android:layout_width="@dimen/title_layout_width"
-            android:layout_height="@dimen/title_layout_height"
-            android:layout_margin="@dimen/title_layout_margin"
-            android:padding="@dimen/title_padding"
-            android:hint="@string/note_title_editView"
-            android:inputType="text"
-            android:background="@drawable/view_state"
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/note_title"
             app:layout_constraintBottom_toTopOf="@+id/priority_spinner"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </EditText>
-
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColorHint="@color/primaryColor"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/note_title_editView"
+                android:textSize="@dimen/title_textSize"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/title_layout_height"
+                android:layout_margin="@dimen/title_layout_margin"
+                android:padding="@dimen/title_padding"
+                android:inputType="text">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
         <Spinner
             android:background="@drawable/view_state"
             android:id="@+id/priority_spinner"
@@ -36,27 +41,32 @@
             android:padding="@dimen/spinner_padding"
             android:entries="@array/priorities"
             android:hint="@string/note_priority"
-            app:layout_constraintBottom_toTopOf="@+id/note_description"
+            app:layout_constraintBottom_toTopOf="@+id/text_description_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/note_title_editView">
-
+            app:layout_constraintTop_toBottomOf="@+id/text_layout">
         </Spinner>
 
-        <EditText
-            android:elevation="2dp"
-            android:id="@+id/note_description"
-            style="@style/Description"
-            android:background="@drawable/view_state"
-            android:gravity="top|start"
-            android:hint="@string/add_note_description"
-            android:inputType="textMultiLine"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_description_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="@string/note_description"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/priority_spinner">
+            app:layout_constraintTop_toBottomOf="@+id/priority_spinner"
+            android:textColorHint="@color/primaryColor"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/note_description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top|start"
+                android:inputType="textMultiLine">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </EditText>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

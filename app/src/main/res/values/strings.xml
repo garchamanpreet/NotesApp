@@ -12,8 +12,8 @@
     <string name="low_priority">Low priority</string>
     <string name="delete_all">Delete All</string>
     <string name="save_note">Save</string>
-    <string name="note_title">Note Title</string>
-    <string name="note_description">Note description</string>
+    <string name="note_title">Title</string>
+    <string name="note_description">Description</string>
     <string name="delete">Delete</string>
     <string name="dark_theme">Dark theme</string>
     <string name="light_theme">Light theme</string>
